@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    float speed = 0;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
+    private Vector3 startPos;
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            this.startPos = Input.mousePosition;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            var endPos = Input.mousePosition;
+            float swipeLength = endPos.x - this.startPos.x;
+            this.speed = swipeLength / 500.0f;
+        }
+        /*if (Input.GetMouseButtonDown(0))
+        {  //마우스 왼쪽버튼 누르면 
+            this.speed = 0.2f;  //초기속도를 설정 
+        }*/
+
+        //GameObject go = this.gameObject;
+        //Transform trans = go.GetComponent<Transform>();
+        //trans.Translate(this.speed, 0, 0); //x축으로 이동한다 
+
+        //Transform trans = this.GetComponent<Transform>();
+        //trans.Translate(this.speed, 0, 0); //x축으로 이동한다 
+
+        this.transform.Translate(this.speed, 0, 0); //x축으로 이동한다 위와 동일 위쪽은 예전방법
+
+        this.speed *= 0.96f;    //감속한다 
     }
 }
