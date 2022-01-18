@@ -14,15 +14,23 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //스와이프 길이를 구한다
         if (Input.GetMouseButtonDown(0))
         {
+            //마우스를 클릭한 좌표
             this.startPos = Input.mousePosition;
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            //마우스 버튼에서 손가락을 떼었을 때 좌표
             var endPos = Input.mousePosition;
             float swipeLength = endPos.x - this.startPos.x;
+
+            //스와이프 길이를 처음 속도로 변환한다.
             this.speed = swipeLength / 500.0f;
+
+            // 효과음을 재생한다.
+            GetComponent<AudioSource>().Play();
         }
         /*if (Input.GetMouseButtonDown(0))
         {  //마우스 왼쪽버튼 누르면 
