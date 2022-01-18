@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class NinjaStarController : MonoBehaviour
 {
-    //float starspeed = 0;
-    float rotSpeed = 0;
+    private float starspeed;
+    private Vector3 starPos;
+    private float rotSpeed = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +16,20 @@ public class NinjaStarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotSpeed = 5.0f;
-        /*if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            this.starspeed = 0.2f;
+            this.starPos = Input.mousePosition;
         }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Vector3 endPos = Input.mousePosition;
+            float Length = endPos.y - this.starPos.y;
 
-        transform.Translate(this.starspeed,0, 0);*/
-        transform.Translate(Vector3.forward * Time.deltaTime);
-        transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-        this.transform.Rotate(0, 0, this.rotSpeed);
+            this.starspeed = (Length / 25.0f) * Time.deltaTime;
+            this.rotSpeed = Length * Time.deltaTime;
+        }
+        transform.Rotate(new Vector3(0, 0, this.rotSpeed));
+        transform.Translate(new Vector3(0, this.starspeed, 0), Space.World);
+        this.starspeed *= 0.99f;
     }
 }
