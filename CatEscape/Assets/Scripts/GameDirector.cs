@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class GameDirector : MonoBehaviour
 {
     private GameObject hpGauge;
+    private GameObject score;
+    private GameObject time;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -5,13 +5,16 @@ using UnityEngine;
 public class ArrowGenerator : MonoBehaviour
 {
     public GameObject arrowPrefab;
+    private GameObject player;
+    private GameObject director;
     float span = 1.0f;
     float delta = 0;      //시간을 누적 시키는데 사용
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.player = GameObject.Find("player");
+        this.director = GameObject.Find("GameDirector");
     }
 
     // Update is called once per frame
