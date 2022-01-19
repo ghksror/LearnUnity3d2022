@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayController : MonoBehaviour
 {
     public float speed = 1.0f;
-
+    public Transform leftBoundaryPoint;
+    public Transform rightBoundaryPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +25,21 @@ public class PlayController : MonoBehaviour
             //방향 * 속도 
             //방향 * 유닛
             this.transform.Translate( Vector2.left*this.speed); //누를때마다 어느 방향으로 몇 유닛을 움직일것인가...
+            CheckBoundary();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             this.transform.Translate(Vector2.right * this.speed);
-
+            CheckBoundary();
         }
 
     }
+
+    private void CheckBoundary()
+    {
+        var pos = this.transform.position;
+        pos.x = Mathf.Clamp(this.transform.position.x, this.leftBoundaryPoint.position.x, this.rightBoundaryPoint.position.x);
+        this.transform.position = pos;
+    }
+
 }
