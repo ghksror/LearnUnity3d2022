@@ -37,7 +37,7 @@ public class ArrowController : MonoBehaviour
 
         if (this.transform.position.y <= -4.0f)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);   //제거
         }
 
         var radiusSum = this.player.radius + this.radius;
@@ -45,8 +45,10 @@ public class ArrowController : MonoBehaviour
 
         if (distance < radiusSum)
         {
+            this.player.Hit(1);   //플레이어와 충돌 (Hit 메서드를 호출)
+
             Destroy(this.gameObject);   //제거 
-            Debug.Log("충돌!");
+            //Debug.Log("충돌!");
         }
 
     }
