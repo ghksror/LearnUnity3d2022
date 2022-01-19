@@ -17,7 +17,16 @@ public class PlayController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.hp = this.maxHp;
+        //this.hp = this.maxHp;
+    }
+    //Init 먼저 실행 start 내용 필요없음
+    public void Init(float maxHp, Transform leftBoundary, Transform rightBoundary, Vector3 InitPos)
+    {
+        this.maxHp = maxHp;
+        this.hp = maxHp;
+        this.leftBoundaryPoint = leftBoundary;
+        this.rightBoundaryPoint = rightBoundary;
+        this.transform.position = InitPos;
     }
 
     // Update is called once per frame
