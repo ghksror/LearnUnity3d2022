@@ -7,6 +7,7 @@ public class PlayController : MonoBehaviour
     public float speed = 1.0f;
     public Transform leftBoundaryPoint;
     public Transform rightBoundaryPoint;
+    public float radius = 1f;
 
     // Start is called before the first frame update
     void Start()
