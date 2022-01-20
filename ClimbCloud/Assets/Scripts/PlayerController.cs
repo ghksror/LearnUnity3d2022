@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigid2D;
+    private Animator animator;
     public float jumpForce = 680f;
     float walkForce = 30.0f;
     float maxWalkSpeed = 2.0f;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         this.rigid2D = this.GetComponent<Rigidbody2D>();
+        this.animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,8 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = new Vector3(key, 1, 1);
         }
 
-
+        //플레이어 속도에 맞춰 애니메이션 속도를 바꿔준다.
+        this.animator.speed = speedx / 2.0f;
 
 
     }
