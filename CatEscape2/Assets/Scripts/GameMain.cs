@@ -6,15 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameMain : MonoBehaviour
 {
     public static bool isGameOver = false;
-
     public PlayController player;
     public UIGame uiGame;
     public UIGameOver uiGameOver;
     public ArrowGenerator arrowGenerator;
-
     public Transform leftBoundary;
     public Transform rightBoundary;
-
     public string[] prefabNames = { "player_01", "player_02", "player_03" };
     public Dictionary<string, GameObject> dicPrefabs = new Dictionary<string, GameObject>();
     
@@ -23,12 +20,6 @@ public class GameMain : MonoBehaviour
     //Resources이름을 가진 폴더안의 에셋은 Resources.Load 함수를 통해 접근 할수가있다.
     //프리팹을 폴더 안에넣고 찾아주기만하면 직접 어싸인할필요가 없다는뜻. (동적으로 로드할수있다.)
 
-    // Start is called before the first frame update
-    void Start() //아래 Init이 먼저 실행되므로 그냥 다 옮겨주었다.
-    {
-
-    }
-
     private void Awake()
     {
         foreach(string prefabName in this.prefabNames)
@@ -36,10 +27,8 @@ public class GameMain : MonoBehaviour
             GameObject prefab = Resources.Load<GameObject>(prefabName);
             dicPrefabs.Add(prefabName, prefab);
         }
-        
     }
 
-    //Init 이 위쪽 void Start보다 먼저 호출되기때문에 start에 쓸필요가없다.
     public void Init(string prefabName)
     {
         var targetPrefab = this.dicPrefabs[prefabName];
@@ -58,7 +47,6 @@ public class GameMain : MonoBehaviour
 
         //하지만 기존에 우리가 직접 넣어주었던 이동방향 한계지점 좌표같은게 동적으로 생성되었기때문에
         //설정되지않은것을 확인할수있엇다... 그래서 게임메인에 직접 넣어주기로했다.(위쪽참고)
-
 
         //this.player.leftBoundary = this.leftBoundary; //왼쪽 한계지점 설정
         //this.player.rightBoundary = this.rightBoundary;//오른쪽 한계지점 설정
