@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigid2D;
@@ -51,6 +51,19 @@ public class PlayerController : MonoBehaviour
         //플레이어 속도에 맞춰 애니메이션 속도를 바꿔준다.
         this.animator.speed = speedx / 2.0f;
 
+        //플레이어가 화면 밖으로 나갔다면 처음부터 진행
+        if(transform.position.y < -10)
+        {
+            SceneManager.LoadScene("GameScene");
+        }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("골!");
+        SceneManager.LoadScene("ClearScene");
+
+    }
+
 }
