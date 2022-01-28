@@ -1,0 +1,26 @@
+[
+  {
+    "id": "150",
+    "name": "HP골렘",
+    "hp": "30",
+    "damage": "3.5",
+    "attackSpeed": "0.8",
+    "prefabName": "HP_Golem"
+  },
+  {
+    "id": "151",
+    "name": "PBR골렘",
+    "hp": "20",
+    "damage": "4.8",
+    "attackSpeed": "0.7",
+    "prefabName": "PBR_Golem"
+  },
+  {
+    "id": "152",
+    "name": "Polyart골렘",
+    "hp": "15",
+    "damage": "5.2",
+    "attackSpeed": "0.6",
+    "prefabName": "Polyart_Golem"
+  }
+]
