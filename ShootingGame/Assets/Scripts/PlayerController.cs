@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public int life;
+    public int score;
     public float speed;
     public float bulletSpeed = 10;
     public float power;
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletAPrefab;
     public GameObject bulletBPrefab;
 
+    public GameManager manager;
+    public bool isHit;
     private Animator anim;
 
     private void Awake()
@@ -125,6 +128,29 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+        else if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet")
+        {
+            if (isHit)
+            {
+                return;
+            }
+            isHit = true;
+            life--;
+            manager.UpdateLifeIcon(life);
+
+            if(life == 0)
+            {
+                manager.GameOver();
+            }
+            else
+            {
+                manager.RespawnPlayer();
+            }
+
+            gameObject.SetActive(false);
+            Destroy(collision.gameObject);
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
