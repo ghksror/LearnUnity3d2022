@@ -1258,6 +1258,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &880576447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880576448}
+  - component: {fileID: 880576449}
+  m_Layer: 0
+  m_Name: ObjectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &880576448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880576447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880576449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880576447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0139b413c375a246aa908b045f5eb3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAPrefab: {fileID: 5479846633518196385, guid: 015e37bbfd4e4504fb4deaafc29191b4, type: 3}
+  enemyBPrefab: {fileID: 7823926336629132619, guid: 050bb655225d9ba44b671bf93c348b9c, type: 3}
+  enemyCPrefab: {fileID: 5720183593548921019, guid: f48a5f13a344571479b2e3b8cd1bfc05, type: 3}
+  itemCoinPrefab: {fileID: 4916362502987440575, guid: eaae96de45ee4254cb26034f2b5aa0dc, type: 3}
+  itemPowerPrefab: {fileID: 367351428483740065, guid: 548eaeee80b374b4d95c7baa734085a7, type: 3}
+  itemBoomPrefab: {fileID: 7212618487977532054, guid: 793641d5b7f91f747ae714e8746d34df, type: 3}
+  playBulletAPrefab: {fileID: 4938782884022285275, guid: db50ff89a41e2ae408c8e661b0eb562a, type: 3}
+  playBulletBPrefab: {fileID: 4951976015001696925, guid: eaaab55ac4ea3044d8db1e70548a8f09, type: 3}
+  enemyBulletAPrefab: {fileID: 7253097898005465220, guid: 40728045ebe1c4b4199cb73b146bfb05, type: 3}
+  enemyBulletBPrefab: {fileID: 7064337254153601538, guid: b119bc522d99bf4419f42f56c6d94223, type: 3}
 --- !u!1 &894993202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1557,7 @@ Transform:
   - {fileID: 2029225048}
   - {fileID: 670628714}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &934180272
 MonoBehaviour:
@@ -1711,7 +1764,7 @@ Transform:
   - {fileID: 704061441}
   - {fileID: 1654574633}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1029397192
 MonoBehaviour:
@@ -1955,7 +2008,7 @@ Transform:
   - {fileID: 513050314}
   - {fileID: 1431069314}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1270501796
 MonoBehaviour:
@@ -2092,7 +2145,7 @@ Transform:
   - {fileID: 1777617934}
   - {fileID: 756696730}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431069313
 GameObject:
@@ -2276,7 +2329,7 @@ RectTransform:
   - {fileID: 160803674}
   - {fileID: 844335365}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2730,7 +2783,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1561799776
 Animator:
@@ -2815,7 +2868,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1566355564
 GameObject:
@@ -2926,9 +2979,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 5479846633518196385, guid: 015e37bbfd4e4504fb4deaafc29191b4, type: 3}
-  - {fileID: 7823926336629132619, guid: 050bb655225d9ba44b671bf93c348b9c, type: 3}
-  - {fileID: 5720183593548921019, guid: f48a5f13a344571479b2e3b8cd1bfc05, type: 3}
+  - 
+  - 
+  - 
   spawnPoints:
   - {fileID: 272165138}
   - {fileID: 1088724729}
@@ -2952,6 +3005,7 @@ MonoBehaviour:
   - {fileID: 109573251}
   - {fileID: 160803675}
   gameOverSet: {fileID: 844335364}
+  objectManager: {fileID: 880576449}
 --- !u!4 &1581147140
 Transform:
   m_ObjectHideFlags: 0

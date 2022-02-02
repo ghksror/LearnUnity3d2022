@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] enemys; //적기가 총 3종류니 배열사용
+    public string[] enemys; //적기가 총 3종류니 배열사용
     public Transform[] spawnPoints; //적기 생성위치도 배열로 나눠서 랜덤으로 소환
 
     public float maxSpawnDelay;
@@ -16,7 +16,12 @@ public class GameManager : MonoBehaviour
     public Image[] lifeImage; //라이프 이미지가 3개기때문에 배열
     public Image[] boomImage;
     public GameObject gameOverSet;
+    public ObjectManager objectManager;
 
+    private void Awake()
+    {
+        enemys = new string[]{ "EnemyA", "EnemyB", "EnemyC"};
+    }
     void Update()
     {
         curSpawnDelay += Time.deltaTime;
@@ -38,11 +43,10 @@ public class GameManager : MonoBehaviour
     {
         int ranEnemy = Random.Range(0, 3);
         int ranPoint = Random.Range(0, 9);
-        GameObject enemy = Instantiate(enemys[ranEnemy],
-                                       spawnPoints[ranPoint].position,
-                                       spawnPoints[ranPoint].rotation);
-        Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
+        GameObject enemy = objectManager.MakeObj(enemys[ranEnemy]);
+        enemy.transform.position = spawnPoints[ranPoint].position;
 
+        Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
         EnemyController enemyLogic = enemy.GetComponent<EnemyController>();
         enemyLogic.player = player;
         if(ranPoint == 6 || ranPoint == 8)

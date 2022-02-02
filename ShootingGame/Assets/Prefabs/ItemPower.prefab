@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 367351428483740076}
   - component: {fileID: 367351428483740079}
   m_Layer: 0
-  m_Name: Item Power
+  m_Name: ItemPower
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
