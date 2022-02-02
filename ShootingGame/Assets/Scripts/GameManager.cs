@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Text scoreText;
     public Image[] lifeImage; //라이프 이미지가 3개기때문에 배열
+    public Image[] boomImage;
     public GameObject gameOverSet;
 
     void Update()
@@ -71,6 +72,20 @@ public class GameManager : MonoBehaviour
         for (int index=0; index< life; index++)
         {
             lifeImage[index].color = new Color(1, 1, 1, 1);
+        }
+    }
+
+    public void UpdateBoomIcon(int boom)
+    {
+        //UI Life Boom Disable 일단 껏다가
+        for (int index = 0; index < 3; index++)
+        {
+            boomImage[index].color = new Color(1, 1, 1, 0);
+        }
+        //UI Boom Active  남아있는 개수만큼 다시 킨다.
+        for (int index = 0; index < boom; index++)
+        {
+            boomImage[index].color = new Color(1, 1, 1, 1);
         }
     }
 

@@ -16,6 +16,9 @@ public class EnemyController : MonoBehaviour
 
     public GameObject bulletAPrefab;
     public GameObject bulletBPrefab;
+    public GameObject itemCoin;
+    public GameObject itemPower;
+    public GameObject itemBoom;
     public GameObject player;
 
 
@@ -73,8 +76,12 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void OnHit(float damage)
+    public void OnHit(int damage)
     {
+        if (hp <= 0)
+        {
+            return;
+        }
         hp -= damage;
         spriteRenderer.sprite = sprites[1]; //평소 스프라이트=0, 히트 스프라이트=1
         Invoke("ReturnSprite", 0.1f); //리턴스프라이트 메서드를 호출하고0.1초뒤에 호출해주세요라는의미 
@@ -82,6 +89,29 @@ public class EnemyController : MonoBehaviour
         {
             PlayerController playerLogic = player.GetComponent<PlayerController>();
             playerLogic.score += enemyScore;
+
+            //Random Ratio Item Drop 적기가 터졌을때 랜덤확률로 아이템드랍
+            int ran = Random.Range(0, 10);
+            if(ran < 5)
+            {
+                //50%미드랍
+                
+            }
+            else if (ran < 8)
+            {
+                //30%돈
+                Instantiate(itemCoin, this.transform.position, itemCoin.transform.rotation);
+            }
+            else if (ran < 9)
+            {
+                //10%파워
+                Instantiate(itemPower, this.transform.position, itemPower.transform.rotation);
+            }
+            else if (ran < 10)
+            {
+                //10%폭탄
+                Instantiate(itemBoom, this.transform.position, itemBoom.transform.rotation);
+            }
             Destroy(this.gameObject);
         }
     }

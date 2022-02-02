@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour
     public int score;
     public float speed;
     public float bulletSpeed = 10;
-    public float power;
+    public int power;
+    public int maxPower;
+    public int boom;
+    public int maxBoom;
     public float maxShotDelay;  //실제 딜레이
     public float curShotDelay;  //한발 쏜이후 충전되기까지의 딜레이
 
@@ -19,10 +22,12 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletAPrefab;
     public GameObject bulletBPrefab;
-
+    public GameObject boomEffect;
     public GameManager manager;
     public bool isHit;
+    public bool isBoomTime;
     private Animator anim;
+
 
     private void Awake()
     {
@@ -33,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Fire();
+        Boom();
         Reload();
     }
 
@@ -108,6 +114,45 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void Boom()
+    {
+        if (!Input.GetButton("Fire2"))
+        {
+            return;
+        }
+        if (isBoomTime)
+        {
+            return;
+        }
+        if(boom == 0)
+        {
+            return;
+        }
+
+        boom--;
+        isBoomTime = true;
+        manager.UpdateBoomIcon(boom);
+
+        //1.Effect visible
+        boomEffect.SetActive(true);
+        Invoke("OffBoomEffect", 4f);
+        //2.Remove Enemy
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int index = 0; index < enemies.Length; index++)
+        {
+            EnemyController enemyLogic = enemies[index].GetComponent<EnemyController>();
+            enemyLogic.OnHit(100);
+        }
+
+        //3.Remove Enemy Bullet
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        for (int index = 0; index < bullets.Length; index++)
+        {
+            Destroy(bullets[index]);
+        }
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Border")
@@ -150,8 +195,48 @@ public class PlayerController : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(collision.gameObject);
         }
+        else if(collision.gameObject.tag == "Item")
+        {
+            ItemController item = collision.gameObject.GetComponent<ItemController>();
+            switch (item.type)
+            {
+                case "Coin":
+                    score += 1000;
+                    break;
+                case "Power":
+                    if(power == maxPower)
+                    {
+                        score += 500;
+                    }
+                    else
+                    {
+                        power++;
+                    }
+                    break;
+                case "Boom":
+                    if (boom == maxBoom)
+                    {
+                        score += 500;
+                    }
+                    else
+                    {
+                        boom++;
+                        manager.UpdateBoomIcon(boom);
+                    }
+                    break;
+            }
+            Destroy(collision.gameObject);
+        }
+
 
     }
+
+    private void OffBoomEffect()
+    {
+        boomEffect.SetActive(false);
+        isBoomTime = false;
+    }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
