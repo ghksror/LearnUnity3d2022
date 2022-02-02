@@ -10,8 +10,15 @@ public class ItemController : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.down * 0.3f;
+        rigid.velocity = Vector2.down * 0.6f;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "BorderBullet")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
 }
