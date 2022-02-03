@@ -372,6 +372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3265463594721806030, guid: 77979fcb111287048923a64da4ac5416, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3265463595549481217, guid: 77979fcb111287048923a64da4ac5416, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -459,6 +463,14 @@ PrefabInstance:
     - target: {fileID: 3265463595549481277, guid: 77979fcb111287048923a64da4ac5416, type: 3}
       propertyPath: m_Name
       value: UILoginPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265463595556035164, guid: 77979fcb111287048923a64da4ac5416, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265463595556035166, guid: 77979fcb111287048923a64da4ac5416, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39607844
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77979fcb111287048923a64da4ac5416, type: 3}
