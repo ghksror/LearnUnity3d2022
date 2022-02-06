@@ -7,16 +7,20 @@ public class UIInventory : MonoBehaviour
 {
     public UIItem[] uiItems;
     public SpriteAtlas atlas;
+
+    private ItemInfo uiItemInfo;
+
     //UIInventory가 아틀라스 인스턴스를 참조해야함(화면에 디스플레이해야하기때문) ,필드를만들고 어싸인
     public void Init(ItemInfo[] itemInfos, Dictionary<int,ItemData> dic)
     {
         for(int i=0; i<uiItems.Length; i++)
         {
             UIItem uiItem = uiItems[i];
-            //      itemInfos.Length = 3
+            
             if (i > itemInfos.Length-1)
             {
-                uiItem.Init(null);
+                uiItemInfo = null;
+                uiItem.Init(null, uiItemInfo);
             }
             else
             {
@@ -24,7 +28,7 @@ public class UIInventory : MonoBehaviour
                 ItemData itemData = dic[uiItemInfo.id];
                 //화면에 디스플레이
                 Sprite sp = atlas.GetSprite(itemData.spriteName);
-                uiItem.Init(sp);
+                uiItem.Init(sp, uiItemInfo);
             }
         }
 

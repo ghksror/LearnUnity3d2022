@@ -16,7 +16,7 @@ public class UIHeroInfo : MonoBehaviour
     
     public void Init(string userName, float level, float attack, float defense, float health, int gold, int gem)
     {
-        this.userNameText.text = userName.ToString();
+        this.userNameText.text = userName;
         this.levelText.text = level.ToString();
         this.attackText.text = attack.ToString();
         this.defenseText.text = defense.ToString();

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
+using System.IO; //File을 읽을때 사용
 using Newtonsoft.Json;
 
 public class MyInfoMain : MonoBehaviour
@@ -23,7 +23,7 @@ public class MyInfoMain : MonoBehaviour
         {
             dicItemDatas.Add(itemData.id, itemData);
         }
-        Debug.Log(dicItemDatas.Count);
+        //Debug.Log(dicItemDatas.Count);
 
         //********************************************
 
@@ -31,25 +31,32 @@ public class MyInfoMain : MonoBehaviour
         Debug.Log(Application.persistentDataPath); //1.경로를 확인한다.
         //2.확인한 경로에 json파일을 넣는다.
 
-        var json = File.ReadAllText(Application.persistentDataPath + "/hero_info.json"); //3.넣은json파일정보를 로드한다.
-        Debug.Log(json);
+        var json = File.ReadAllText(Application.persistentDataPath + "/hero_info.json"); //3.넣은json파일정보를 로드한다. using System.IO;필요
+        //Debug.Log(json);
 
         //HeroInfo.cs에 매핑하고난뒤 역직렬화한다. string -> object(HeroInfo객체) 읽은 데이터를 메모리에 올리기위함
         HeroInfo heroInfo = JsonConvert.DeserializeObject<HeroInfo>(json);
-        Debug.Log(heroInfo.attack);
+        //Debug.Log(heroInfo.attack);
 
-        //Heroinfo에 저장된 정보를 불러와서 UI에 표시하기
+        //heroinfo에 저장된 정보를 불러와서 UI에 표시하기
         this.uiHeroInfo.Init(heroInfo.userName, heroInfo.level, heroInfo.attack, heroInfo.defense, heroInfo.health, heroInfo.gold, heroInfo.gem);
 
         //********************************************
 
         //아이템을 획득했다...
-        /*var itemInfo0 = this.GetItem(100,2);
+        var itemInfo0 = this.GetItem(100,2);
         var itemInfo1 = this.GetItem(101,1);
         var itemInfo2 = this.GetItem(102,11);
         var itemInfo3 = this.GetItem(103,0);
         var itemInfo4 = this.GetItem(104,0);
         var itemInfo5 = this.GetItem(105,3);
+        var itemInfo6 = this.GetItem(106, 3);
+        var itemInfo7 = this.GetItem(107, 1);
+        var itemInfo8 = this.GetItem(108, 1);
+        var itemInfo9 = this.GetItem(109, 2);
+        var itemInfo10 = this.GetItem(110, 1);
+        var itemInfo11 = this.GetItem(111, 3);
+        var itemInfo12 = this.GetItem(112, 4);
 
         //배열에 넣는다
         List<ItemInfo> list = new List<ItemInfo>();
@@ -59,6 +66,13 @@ public class MyInfoMain : MonoBehaviour
         list.Add(itemInfo3);
         list.Add(itemInfo4);
         list.Add(itemInfo5);
+        list.Add(itemInfo6);
+        list.Add(itemInfo7);
+        list.Add(itemInfo8);
+        list.Add(itemInfo9);
+        list.Add(itemInfo10);
+        list.Add(itemInfo11);
+        list.Add(itemInfo12);
 
         //직렬화(object -> json)
         var itemsJson = JsonConvert.SerializeObject(list);
@@ -71,16 +85,17 @@ public class MyInfoMain : MonoBehaviour
         //파일로 저장
         var path = Application.persistentDataPath + "/items_info.json";
         Debug.Log(path);
-        File.WriteAllText(path, itemsJson);*/
+        File.WriteAllText(path, itemsJson);
 
         //********************************************
         //MyInfoMain에 저장된걸 확인했으니 사용하려면 MyInfoMain에서 다시 불러와야한다.
 
-        var path = Application.persistentDataPath + "/items_info.json";
+        var path1 = Application.persistentDataPath + "/items_info.json";
         
-        var itemsJson = File.ReadAllText(path);//[{"id":100,"amount":2},{"id":101,"amount":1},{"id":102,"amount":11},{"id":103,"amount":0},{"id":104,"amount":0},{"id":105,"amount":3}]
+        var itemsJson1 = File.ReadAllText(path1);//[{"id":100,"amount":2},{"id":101,"amount":1},{"id":102,"amount":11},{"id":103,"amount":0},{"id":104,"amount":0},{"id":105,"amount":3}]
+
         //역직렬화 (string -> object)
-        var itemInfos = JsonConvert.DeserializeObject<ItemInfo[]>(itemsJson);
+        var itemInfos = JsonConvert.DeserializeObject<ItemInfo[]>(itemsJson1);
         //UIInventory에게 배열을 전달
         this.uiInventory.Init(itemInfos, dicItemDatas);
 
