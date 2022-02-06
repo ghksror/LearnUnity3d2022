@@ -17,7 +17,7 @@ public class UIHome : MonoBehaviour
     public Button btnFacebook;
     public Button btnItems;
     public Button btnShop;
-    public Button btnMessage;
+    public Button btnMessages;
     public Button btnMission;
     public Button btnRanking;
     public Button btnSettings;
@@ -28,7 +28,6 @@ public class UIHome : MonoBehaviour
 
     //public Button[] arrMenuBtns;
 
-    // Start is called before the first frame update
     void Start()
     {
         this.btnFacebook.onClick.AddListener(() =>
@@ -43,7 +42,7 @@ public class UIHome : MonoBehaviour
         {
             Debug.Log("Shop");
         });
-        this.btnMessage.onClick.AddListener(() =>
+        this.btnMessages.onClick.AddListener(() =>
         {
             Debug.Log("Message");
         });
