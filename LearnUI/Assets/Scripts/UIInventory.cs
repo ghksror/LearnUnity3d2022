@@ -13,7 +13,7 @@ public class UIInventory : MonoBehaviour
     //UIInventory가 아틀라스 인스턴스를 참조해야함(화면에 디스플레이해야하기때문) ,필드를만들고 어싸인
     public void Init(ItemInfo[] itemInfos, Dictionary<int,ItemData> dic)
     {
-        for(int i=0; i<uiItems.Length; i++)
+        /*for(int i=0; i<uiItems.Length; i++)
         {
             UIItem uiItem = uiItems[i];
             
@@ -30,7 +30,7 @@ public class UIInventory : MonoBehaviour
                 Sprite sp = atlas.GetSprite(itemData.spriteName);
                 uiItem.Init(sp, uiItemInfo);
             }
-        }
+        }*/
 
         //순회
         /*for(int i =0; i<itemInfos.Length; i++)
