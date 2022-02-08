@@ -1,0 +1,74 @@
+[
+  {
+    "id": "100",
+    "name": "stage 1",
+    "stage_mission_id": "1000",
+    "require_level": "1",
+    "take_Item_Id_0": "107",
+    "take_Item_Id_1": "100",
+    "take_Item_Id_2": "106"
+  },
+  {
+    "id": "101",
+    "name": "stage 2",
+    "stage_mission_id": "1000",
+    "require_level": "1",
+    "take_Item_Id_0": "107",
+    "take_Item_Id_1": "100",
+    "take_Item_Id_2": "106"
+  },
+  {
+    "id": "102",
+    "name": "stage 3",
+    "stage_mission_id": "1000",
+    "require_level": "1",
+    "take_Item_Id_0": "107",
+    "take_Item_Id_1": "100",
+    "take_Item_Id_2": "106"
+  },
+  {
+    "id": "103",
+    "name": "stage 4",
+    "stage_mission_id": "1000",
+    "require_level": "7",
+    "take_Item_Id_0": "107",
+    "take_Item_Id_1": "100",
+    "take_Item_Id_2": "106"
+  },
+  {
+    "id": "104",
+    "name": "stage 5",
+    "stage_mission_id": "1000",
+    "require_level": "8",
+    "take_Item_Id_0": "107",
+    "take_Item_Id_1": "100",
+    "take_Item_Id_2": "106"
+  },
+  {
+    "id": "105",
+    "name": "stage 6",
+    "stage_mission_id": "1000",
+    "require_level": "9",
+    "take_Item_Id_0": "107",
+    "take_Item_Id_1": "100",
+    "take_Item_Id_2": "106"
+  },
+  {
+    "id": "106",
+    "name": "stage 7",
+    "stage_mission_id": "1000",
+    "require_level": "10",
+    "take_Item_Id_0": "107",
+    "take_Item_Id_1": "100",
+    "take_Item_Id_2": "106"
+  },
+  {
+    "id": "107",
+    "name": "stage 8",
+    "stage_mission_id": "1000",
+    "require_level": "11",
+    "take_Item_Id_0": "107",
+    "take_Item_Id_1": "100",
+    "take_Item_Id_2": "106"
+  }
+]
